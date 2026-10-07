@@ -1,0 +1,44 @@
+device:
+  layer: rpizero2w
+  user1: debian
+  # leave password unset, to force locked account
+  #user1pass: <password>
+  #user1passhash: <hash_of_debian_password>
+  user1groups: adm
+  user1sudo: nopasswd
+  hostname: ${IGconf_device_class}-ultralight
+
+image:
+  layer: image-rpios
+  boot_part_size: 400M
+  root_part_size: 14G
+  name: rpios-deb13-${IGconf_device_class}-ultralight
+  devid_scheme: partuuid
+  idp_enable: n
+
+locale:
+  default: en_US.UTF-8
+  keyboard_keymap: us
+  keyboard_layout: English (US)
+  timezone: Europe/Zurich
+
+ssh:
+  pubkey_user1: $(ls -1 ${HOME}/rpi-image-gen-res/*.pub | head -1)
+  pubkey_only: n  # keep default configuration
+
+iwd:
+  profile: $(ls -1 ${HOME}/rpi-image-gen-res/*.psk | head -1)
+
+ieee80211:
+  regdom: CH
+
+layer:
+  all: trixie-arm64-ultralight
+
+
+# TODO: Check remove these packages
+# - bluez-firmware
+# - dracut-install
+# - logsave
+# - openssl
+# - rsync

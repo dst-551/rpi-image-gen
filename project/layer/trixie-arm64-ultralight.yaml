@@ -1,0 +1,33 @@
+# METABEGIN
+# X-Env-Layer-Name: trixie-arm64-ultralight
+# X-Env-Layer-Desc: Base layer for Trixie Ultralight
+#  This layer is derived from trixie-minbase layer and changes the following:
+#  - Use debian-trixie-arm64 instead of debian-trixie-arm64-multi
+#  - Remove dependency rpi-misc-utils
+#  - Remove dependency rpi-essential-base
+# X-Env-Layer-Version: 1.0.0
+# X-Env-Layer-Requires: debian-trixie-arm64,
+#  rpi-debian-trixie,
+#  rpi-misc-skel,
+#  systemd-net-min,
+#  openssh-server,
+#  systemd-timesyncd,
+#  wireless-regulatory,
+#  iwd
+# METAEND
+---
+mmdebstrap:
+  packages:
+    - e2fsprogs
+    - bash-completion
+    - curl
+    - iproute2
+    - iputils-ping
+    - less
+    - nano
+    - python3
+    - systemd-cron
+    - zstd
+  # - ???isc-dhcp-client
+  # - ???procps
+

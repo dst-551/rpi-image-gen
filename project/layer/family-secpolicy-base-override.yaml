@@ -1,0 +1,13 @@
+# METABEGIN
+# X-Env-Layer-Name: rpi-device-secpolicy
+# X-Env-Layer-Category: security
+# X-Env-Layer-Desc: Raspberry Pi device family security policy baseline
+#  This layer overrides the base security policy layer and removes the
+#  installation of the EEPROM update tool and service, since rpizero2w
+#  does not have an updatable EEPROM.
+# X-Env-Layer-Version: 99.0.0
+# METAEND
+---
+mmdebstrap:
+  packages:
+    - ca-certificates
