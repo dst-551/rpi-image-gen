@@ -13,7 +13,7 @@
 #  openssh-server,
 #  systemd-timesyncd,
 #  wireless-regulatory,
-#  iwd
+#  wpasupplicant
 # METAEND
 ---
 mmdebstrap:
@@ -28,6 +28,4 @@ mmdebstrap:
     - python3
     - systemd-cron
     - zstd
-  # - ???isc-dhcp-client
-  # - ???procps
 

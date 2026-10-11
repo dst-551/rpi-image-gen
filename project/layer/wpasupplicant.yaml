@@ -1,0 +1,33 @@
+# METABEGIN
+# X-Env-Layer-Name: wpasupplicant
+# X-Env-Layer-Category: connectivity
+# X-Env-Layer-Desc: WPA supplicant for wifi management
+# X-Env-Layer-Version: 1.0.1
+# X-Env-Layer-Provides: wifi-supplicant
+# X-Env-Layer-RequiresProvider: wireless-regdb,systemd,network-activator
+#
+# X-Env-VarPrefix: wpasupplicant
+#
+# X-Env-Var-profile:
+# X-Env-Var-profile-Desc: Path to a wpa_supplicant network profile file to bake
+#  into the build. The file is installed into /etc/wpa_supplicant/.
+#  See wpa_supplicant.conf(5)
+# X-Env-Var-profile-Required: n
+# X-Env-Var-profile-Valid: string-or-empty
+# X-Env-Var-profile-Set: y
+#
+# METAEND
+---
+mmdebstrap:
+  packages:
+    - wpasupplicant
+  customize-hooks:
+    - chroot "$1" /bin/systemctl disable wpa_supplicant.service
+    - chroot "$1" /bin/systemctl enable wpa_supplicant@wlan0.service
+    - install -d -m 0755 "$1/etc/wpa_supplicant"
+    - |-
+      set -eu
+      if [ -n "${IGconf_wpasupplicant_profile:-}" ]; then
+        install -m 0600 "${IGconf_wpasupplicant_profile}" \
+          "$1/etc/wpa_supplicant/wpa_supplicant-wlan0.conf"
+      fi

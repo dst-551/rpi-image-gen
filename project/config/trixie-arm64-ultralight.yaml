@@ -26,8 +26,8 @@ ssh:
   pubkey_user1: $(ls -1 ${HOME}/rpi-image-gen-res/*.pub | head -1)
   pubkey_only: n  # keep default configuration
 
-iwd:
-  profile: $(ls -1 ${HOME}/rpi-image-gen-res/*.psk | head -1)
+wpasupplicant:
+  profile: $(ls -1 ${HOME}/rpi-image-gen-res/wpa*.conf | head -1)
 
 ieee80211:
   regdom: CH

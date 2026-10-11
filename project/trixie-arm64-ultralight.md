@@ -18,7 +18,7 @@ This document lists all layers used by `project/config/trixie-arm64-ultralight.y
 | device-user-credentials | - | device.user1=pi, device.user1pass=(empty), device.user1passhash=(empty), device.user1sudo=none, device.user1uid=(empty), device.user1gid=(empty), device.user1groups=adm,dialout,cdrom,audio,users,video,games,plugdev,input,spi,i2c,gpio,render |
 | systemd-timesyncd | systemd-timesyncd | - |
 | wireless-regulatory | wireless-regdb | ieee80211.regdom=00 |
-| iwd | iwd | iwd.profile=(empty) |
+| wpasupplicant | wpasupplicant | wpasupplicant.profile=(empty) |
 | rpizero2w | - | device.class=zero2w, device.storage_type=sd, device.assetdir=\${DIRECTORY} |
 | rpi-generic64 | - | - |
 | rpi-device-base | udev, firmware-brcm80211, bluez-firmware | device.vendor=rpi, device.class=pi5, device.variant=none |

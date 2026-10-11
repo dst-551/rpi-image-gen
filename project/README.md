@@ -8,8 +8,8 @@ The config in this directory builds an ultralight image with:
 
 - Device target: `rpizero2w`
 - Image layout: `image-rpios`
-- Boot partition size: `512M`
-- Root partition size: `15G`
+- Boot partition size: `400M`
+- Root partition size: `14G`
 - Output image name base: `rpios-deb13-arm64-ultralight`
 - Base/network layers for SSH + systemd networking + wireless support
 - A local override for `rpi-device-secpolicy` that disables EEPROM update service installation for Zero 2 W
@@ -22,6 +22,7 @@ Local project layer files:
 
 - `project/layer/trixie-arm64-ultralight.yaml`
 - `project/layer/family-secpolicy-base-override.yaml`
+- `project/layer/wpasupplicant.yaml`
 
 Layer/variable reference document:
 
